@@ -34,10 +34,10 @@ Motor.prototype.LeftDrive = function() {
 }
 
 // Forwards
-Motor.prototype.Forward = function(Direction) {
-    Direction += 100;
+Motor.prototype.Forward = function(direction) {
+    direction += 100;
 
-    var Left = Math.round(255 - ((255 / 200) * Direction));
+    var Left = Math.round(255 - ((255 / 200) * direction));
     var Right = 255 - Left;
     var Forward = [7,3,Left,2,3,Right,2]; 
     wire.write(Forward, function(err) {
