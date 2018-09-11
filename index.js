@@ -35,8 +35,10 @@ Motor.prototype.LeftDrive = function() {
 
 // Naar voren
 Motor.prototype.Forward = function(direction) {
-    var links = Math.round(128 + (((128/100) * direction) - 64));
-    var rechts = 256 - links;
+    direction += 100;
+
+    var links = Math.round(255 - ((255 / 200) * direction));
+    var rechts = 255 - links;
     var MForward = [7,3,links,2,3,rechts,2]; 
     wire.write(MForward, function(err) {
         console.log(err);

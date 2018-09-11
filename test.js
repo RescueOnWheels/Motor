@@ -4,17 +4,12 @@ const wheel = new Motor();
 
 try {
     setTimeout(() => {
-        wheel.Forward(-100);
+        wheel.Forward(100);
         setTimeout(() => {
-            wheel.Forward(0);    
-            setTimeout(() => {
-                wheel.Forward(100);
-                setTimeout(() => {
-                    wheel.Stop();
-                },2000);
-            },2000);
-        },2000);
-    },10000);
+            wheel.Stop();
+        }, 10000);
+    }, 5000);
+
 } catch (error) {
     wheel.Stop();
 }
