@@ -16,6 +16,16 @@ Motor.prototype.Left = function() {
 
 }
 
+Motor.prototype.LeftDrive = function() {
+    console.log("Turning left");
+
+    var Left = [7,3,0x52,2,3,0xa5,2]; 
+    wire.write(Left, function(err) {
+        console.log(err);
+    });
+
+}
+
 Motor.prototype.Right = function() {
     console.log("Turning right");
 

@@ -6,11 +6,11 @@ try {
     setTimeout(() => {
         wheel.Forward();
         setTimeout(() => {
-            wheel.Boost();    
+            wheel.LeftDrive();    
             setTimeout(() => {
                 wheel.Stop();
-            },1500);
-        },1500);
+            },2000);
+        },2000);
     },10000);
 } catch (error) {
     wheel.Stop();
