@@ -42,12 +42,12 @@ Motor.prototype.Forward = ({speed, direction, balance}) => {
   
   let leftDir = direction;
   if (leftDir < 10) {
-    leftDir == 0;
+    leftDir = 0;
   };
 
   let rightDir = direction;
   if (rightDir < 10) {
-    rightDir == 0;
+    rightDir = 0;
   };
   
   const forward = [7, 3, leftspeed, leftDir, 3, rightspeed, rightDir ];
