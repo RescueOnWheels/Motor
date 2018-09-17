@@ -27,37 +27,31 @@ Motor.prototype.Right = () => {
   wireWrite(right);
 };
 
-// Driving to the left
-Motor.prototype.LeftDrive = () => {
-  const left = [7, 3, 0x52, 2, 3, 0xa5, 2];
-  wireWrite(left);
+// Stopping
+Motor.prototype.Stop = () => {
+  const stopping = [7, 0, 0, 0, 0, 0, 0];
+  wireWrite(stopping);
 };
 
 // Forwards
 // [bytes, 3, speed, direction, 3, speed, direction]
 // Speed 0 - 100, direction -1 - 1, balance -100 - 100
 Motor.prototype.Forward = ({speed, direction, balance}) => {
-  const leftspeed = speed + balance;
-  const rightspeed = speed - balance;
+  const leftSpeed = speed + balance;
+  const rightSpeed = speed - balance;
   
   let leftDir = direction;
-  if (leftspeed < 10) {
+  if (leftSpeed < 10) {
     leftDir = 0;
   };
 
   let rightDir = direction;
-  if (rightspeed < 10) {
+  if (rightSpeed < 10) {
     rightDir = 0;
   };
   
-  const forward = [7, 3, leftspeed, leftDir, 3, rightspeed, rightDir];
+  const forward = [7, 3, leftSpeed, leftDir, 3, rightSpeed, rightDir];
   wireWrite(forward);
-};
-
-// Stopping
-Motor.prototype.Stop = () => {
-  const stopping = [7, 0, 0, 0, 0, 0, 0];
-  wireWrite(stopping);
 };
 
 module.exports = Motor;
