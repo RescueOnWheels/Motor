@@ -41,16 +41,16 @@ Motor.prototype.Forward = ({speed, direction, balance}) => {
   const rightspeed = speed - balance;
   
   let leftDir = direction;
-  if (leftDir < 10) {
+  if (leftspeed < 10) {
     leftDir = 0;
   };
 
   let rightDir = direction;
-  if (rightDir < 10) {
+  if (rightspeed < 10) {
     rightDir = 0;
   };
   
-  const forward = [7, 3, leftspeed, leftDir, 3, rightspeed, rightDir ];
+  const forward = [7, 3, leftspeed, leftDir, 3, rightspeed, rightDir];
   wireWrite(forward);
 };
 
