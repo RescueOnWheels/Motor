@@ -34,17 +34,14 @@ Motor.prototype.LeftDrive = () => {
 };
 
 // Forwards
-Motor.prototype.Forward = (direction) => {
-  const left = Math.round(255 - ((255 / 200) * (direction + 100)));
-  const right = 255 - left;
-  const forward = [7, 3, left, 2, 3, right, 2];
+// [bytes, 3, speed, direction, 3, speed, direction]
+// Speed 0 - 100, direction -1 - 1, balance -100 - 100
+Motor.prototype.Forward = ({speed, direction, balance}) => {
+  const leftspeed = speed + balance;
+  const rightspeed = speed - balance;
+  
+  const forward = [7, 3, leftspeed, direction, 3, rightspeed, direction ];
   wireWrite(forward);
-};
-
-// Full power forwards
-Motor.prototype.Boost = () => {
-  const boostForward = [7, 3, 0xFF, 2, 3, 0xFF, 2];
-  wireWrite(boostForward);
 };
 
 // Stopping
