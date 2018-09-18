@@ -25,6 +25,12 @@ class Motor {
     this.write(stopping);
   }
 
+  // Backwards
+  Backwards() {
+    const backwards = [7, 3, 0xa5, 1, 3, 0xa5, 1];
+    this.write(backwards);
+  }
+
   // Forwards
   // [bytes, 3, speed, direction, 3, speed, direction]
   // Speed 0 - 100, direction -1 - 1, balance -100 - 100
