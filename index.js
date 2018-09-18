@@ -49,6 +49,7 @@ class Motor {
     this.wire.write(side, (err) => {
       if (err) {
         console.error('Motor: Houston we have a problem:', err);
+        this.write( [7, 0, 0, 0, 0, 0, 0]);
       }
     });
   }
