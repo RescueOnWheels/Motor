@@ -12,27 +12,27 @@ function sleep(milliseconds) {
 }
 
 try {
-  console.log("Do this");
+  console.log("Slide to the left *clap clap*");
   wheel.Left();
   sleep(2000);
 
-  console.log("do more");
+  console.log("Slide tot he right *clap clap*");
   wheel.Right();
   sleep(2000);
 
-  console.log("retreat");
+  console.log("Move back real smooth");
   wheel.Backwards();
   sleep(2000);
 
-  console.log("hallo kutwereld<3");
+  console.log("https://www.youtube.com/watch?v=2k0SmqbBIpQ");
   wheel.Stop();
 
 } catch (error) {
-  console.log("Error i guess");
+  console.log("Error I guess");
   console.log(error);
   wheel.Stop();
 
 } finally {
-  console.log("Finally stopping please");
+  console.log("Finally stopping");
   wheel.Stop();
 } 
