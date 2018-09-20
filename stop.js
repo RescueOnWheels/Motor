@@ -2,12 +2,12 @@ const wheel = require('./');
 
 try {
   console.log('Do this');
-  setTimeout(() => { wheel.Stop(); }, 3000);
+  wheel.Stop();
 } catch (error) {
-  console.log('fak');
+  console.log('y u no work!?');
   console.log(error);
   wheel.Stop();
 } finally {
   console.log('Finally stopping please');
-  setTimeout(() => { wheel.Stop(); }, 3000);
+  wheel.Stop();
 }
