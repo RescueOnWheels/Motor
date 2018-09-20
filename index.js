@@ -1,9 +1,10 @@
+/**
+ * Bindings for i2c-dev. Plays well with Raspberry Pi and Beaglebone.
+ */
 const I2C = require('i2c');
 
-const address = 0x32;
-
 class Motor {
-  constructor() {
+  constructor(address = 0x32) {
     this.wire = new I2C(address, { device: '/dev/i2c-1' }); // point to your i2c address, debug provides REPL interface
   }
 
@@ -55,10 +56,24 @@ class Motor {
     this.wire.write(side, (err) => {
       if (err) {
         console.error('Motor: Houston we have a problem:', err);
-        this.write( [7, 0, 0, 0, 0, 0, 0]);
+        this.write([7, 0, 0, 0, 0, 0, 0]);
       }
     });
   }
 }
 
-module.exports = Motor;
+/**
+ * Constructor
+ *
+ * Allows the user to create their own instance of Motor,
+ * should be used whenever the Motor is not on I2C adress 0x32.
+ */
+Motor.prototype.Motor = Motor;
+
+/**
+ * Singleton
+ *
+ * Because `require` caches the value assigned to `module.exports`,
+ * all calls to `require('./Motor')` will return this same instance.
+ */
+module.exports = exports = new Motor(); // eslint-disable-line no-multi-assign
