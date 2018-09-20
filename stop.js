@@ -1,13 +1,9 @@
 const wheel = require('./');
-
+const I2C = require('i2c');
 try {
-  console.log('Do this');
+  console.log('Deus Ex Machina');
   wheel.Stop();
 } catch (error) {
   console.log('y u no work!?');
   console.log(error);
-  wheel.Stop();
-} finally {
-  console.log('Finally stopping please');
-  wheel.Stop();
 }
