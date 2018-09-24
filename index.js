@@ -36,16 +36,17 @@ class Motor {
   // [bytes, 3, speed, direction, 3, speed, direction]
   // Speed 0 - 100, direction -1 - 1, balance -100 - 100
   Forward({ speed, direction, balance }) {
-    const leftSpeed = speed + balance;
-    const rightSpeed = speed - balance;
+    const leftSpeed = speed + (balance * 1.25);
+    const rightSpeed = speed - (balance * 1.25);
+
     let leftDir = direction;
-    if (leftSpeed < 10) {
-      leftDir = 0;
+    if (leftSpeed < 0) {
+      leftDir = (leftDir === 1 ? 2 : 1);
     }
 
     let rightDir = direction;
-    if (rightSpeed < 10) {
-      rightDir = 0;
+    if (rightSpeed < 0) {
+      rightDir = (rightDir === 1 ? 2 : 1);
     }
 
     const forward = [7, 3, leftSpeed, leftDir, 3, rightSpeed, rightDir];
