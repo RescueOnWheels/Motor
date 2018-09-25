@@ -3,38 +3,69 @@
  */
 const I2C = require('i2c');
 
+/**
+ * Class motor which makes it possible for the RSS to move all directions.
+ * 
+ * @class
+ */
 class Motor {
   constructor(address = 0x32) {
     this.wire = new I2C(address, { device: '/dev/i2c-1' }); // point to your i2c address, debug provides REPL interface
   }
 
-  // Rotating to the left
+  /**
+   * The function which makes the RRS rotate to the left on his own axle. So turning the right wheels forwards
+   * and the left wheels backwards.
+   * 
+   * @function
+   */
   Left() {
     const left = [7, 3, 0xa5, 1, 3, 0xa5, 2];
     this.write(left);
   }
 
-  // Rotating to the right
+  /**
+   * The function which makes the RRS rotate to the right on his own axle. So turning the right wheels backwards
+   * and the left wheels forwards.
+   * 
+   * @function
+   */
   Right() {
     const right = [7, 3, 0xa5, 2, 3, 0xa5, 1];
     this.write(right);
   }
 
-  // Stopping
+  /**
+   * The function which stops the RRS from moving.
+   * 
+   * @function
+   */
   Stop() {
     const stopping = [7, 0, 0, 0, 0, 0, 0];
     this.write(stopping);
   }
 
-  // Backwards
+  /**
+   * The function which makes it possible to let the RRS drive backwards. The direction, 1, makes the wheels
+   * turn backwards.
+   * 
+   * @function
+   */
   Backwards() {
     const backwards = [7, 3, 0xa5, 1, 3, 0xa5, 1];
     this.write(backwards);
   }
 
-  // Forwards
-  // [bytes, 3, speed, direction, 3, speed, direction]
-  // Speed 0 - 100, direction -1 - 1, balance -100 - 100
+  /**
+   * In this function, the direction and speed for both sides of wheels is being calculated. The controller
+   * provides a speed, direction and balance. 
+   * 
+   * @function
+   * @param {object} instruction
+   * @param {number} instruction.speed - The amount of throttle given from the controller. Value between 0 - 255. - 
+   * @param {number} instruction.direction - The direction of wheel rotation given from the controller. Value between 1 or 2.
+   * @param {number} instruction.balance - The balance between the wheels. Value between -255 - 255.
+   */
   Forward({ speed, direction, balance }) {
     const leftSpeed = speed + (balance * 1.25);
     const rightSpeed = speed - (balance * 1.25);
@@ -53,6 +84,13 @@ class Motor {
     this.write(forward);
   }
 
+  /**
+   * Uses the wirewrite package to write the data to the Rover.
+   * 
+   * @function
+   * @param {object} instruction
+   * @param {string} instruction.side - Gives the desired side to write to.
+   */
   write(side) {
     this.wire.write(side, (err) => {
       if (err) {
