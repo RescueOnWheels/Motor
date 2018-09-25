@@ -1,5 +1,5 @@
 const wheel = require('./');
-const I2C = require('i2c');
+
 try {
   console.log('Deus Ex Machina');
   wheel.Stop();

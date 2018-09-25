@@ -4,20 +4,28 @@
 const I2C = require('i2c');
 
 /**
- * Class motor which makes it possible for the RSS to move all directions.
- * 
+ * Class motor which contains all the functions which makes it possible
+ * for the RRS to move all directions.
+ *
  * @class
  */
 class Motor {
+  /**
+   * Opening the bus connection to the specified address.
+   *
+   * @param {Number} [address=0x32] - I2C address
+   */
   constructor(address = 0x32) {
-    this.wire = new I2C(address, { device: '/dev/i2c-1' }); // point to your i2c address, debug provides REPL interface
+    this.wire = new I2C(address, { device: '/dev/i2c-1' });
+    // point to your i2c address, debug provides REPL interface
   }
 
   /**
-   * The function which makes the RRS rotate to the left on his own axle. So turning the right wheels forwards
-   * and the left wheels backwards.
-   * 
+   * The function which makes the RRS rotate to the left on his own axle.
+   * So turning the right wheels forwards and the left wheels backwards.
+   *
    * @function
+   * @returns {undefined}
    */
   Left() {
     const left = [7, 3, 0xa5, 1, 3, 0xa5, 2];
@@ -25,10 +33,11 @@ class Motor {
   }
 
   /**
-   * The function which makes the RRS rotate to the right on his own axle. So turning the right wheels backwards
-   * and the left wheels forwards.
-   * 
+   * The function which makes the RRS rotate to the right on his own axle.
+   * So turning the right wheels backwards and the left wheels forwards.
+   *
    * @function
+   * @returns {undefined}
    */
   Right() {
     const right = [7, 3, 0xa5, 2, 3, 0xa5, 1];
@@ -37,8 +46,9 @@ class Motor {
 
   /**
    * The function which stops the RRS from moving.
-   * 
+   *
    * @function
+   * @returns {undefined}
    */
   Stop() {
     const stopping = [7, 0, 0, 0, 0, 0, 0];
@@ -46,10 +56,11 @@ class Motor {
   }
 
   /**
-   * The function which makes it possible to let the RRS drive backwards. The direction, 1, makes the wheels
-   * turn backwards.
-   * 
+   * The function which makes it possible to let the RRS drive backwards.
+   * The direction, 1, makes the wheels turn backwards.
+   *
    * @function
+   * @returns {undefined}
    */
   Backwards() {
     const backwards = [7, 3, 0xa5, 1, 3, 0xa5, 1];
@@ -57,14 +68,15 @@ class Motor {
   }
 
   /**
-   * In this function, the direction and speed for both sides of wheels is being calculated. The controller
-   * provides a speed, direction and balance. 
-   * 
+   * In this function, the direction and speed for both sides of wheels is being calculated.
+   * The controller provides a speed, direction and balance.
+   *
    * @function
-   * @param {object} instruction
-   * @param {number} instruction.speed - The amount of throttle given from the controller. Value between 0 - 255. - 
-   * @param {number} instruction.direction - The direction of wheel rotation given from the controller. Value between 1 or 2.
-   * @param {number} instruction.balance - The balance between the wheels. Value between -255 - 255.
+   * @param {Object} instruction - Object containing speed, direction and balance.
+   * @param {Number} instruction.speed - The amount of throttle, value between 0 - 255.
+   * @param {Number} instruction.direction - The direction of wheel rotation, value between 1 or 2.
+   * @param {Number} instruction.balance - The wheel balance, value between -255 - 255.
+   * @returns {undefined}
    */
   Forward({ speed, direction, balance }) {
     const leftSpeed = speed + (balance * 1.25);
@@ -86,13 +98,13 @@ class Motor {
 
   /**
    * Uses the wirewrite package to write the data to the Rover.
-   * 
+   *
    * @function
-   * @param {object} instruction
-   * @param {string} instruction.side - Gives the desired side to write to.
+   * @param {Object} instruction - Buffer containing command and data.
+   * @returns {undefined}
    */
-  write(side) {
-    this.wire.write(side, (err) => {
+  write(instruction) {
+    this.wire.write(instruction, (err) => {
       if (err) {
         console.error('Motor: Houston we have a problem:', err);
         this.write([7, 0, 0, 0, 0, 0, 0]);

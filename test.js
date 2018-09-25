@@ -1,5 +1,12 @@
 const wheel = require('./');
 
+/**
+ * Function which makes it possible to use sleep.
+ *
+ * @function
+ * @param {Number} milliseconds - The amount of zzzzz's.
+ * @returns {undefined}
+ */
 function sleep(milliseconds) {
   const start = new Date().getTime();
   for (let i = 0; i < 1e7; i += 1) {
