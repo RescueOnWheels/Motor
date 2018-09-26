@@ -11,6 +11,14 @@ const motor = require('./../');
 chai.should();
 
 describe('constructor', () => {
+  it('should have access to the \'write_history\' property of wire', () => {
+    motor.wire.should.have.property('write_history');
+  });
+
+  it('should have access to the \'write_history\' property of wire, which should be an array', () => {
+    motor.wire.write_history.should.be.a('array');
+  });
+
   it('should have access to the \'options\' property of wire', () => {
     motor.wire.should.have.property('options');
   });
