@@ -1,33 +1,36 @@
 {
-  "name": "motor",
-  "version": "1.0.0",
-  "description": "Motor control system of the Rover Rescue System.",
-  "main": "index.js",
-  "dependencies": {
-    "i2c": "^0.2.3"
-  },
-  "devDependencies": {
-    "eslint": "^5.6.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
-  },
-  "scripts": {
-    "lint": "eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RescueOnWheels/Motor.git"
-  },
-  "author": "RescueOnWheels",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/RescueOnWheels/Motor/issues"
-  },
-  "homepage": "https://github.com/RescueOnWheels/Motor#readme",
-  "directories": {
-    "example": "example",
-    "lib": "lib",
-    "test": "test"
-  }
+    "name": "motor",
+    "version": "1.0.0",
+    "description": "Motor control system of the Rover Rescue System.",
+    "main": "index.js",
+    "dependencies": {
+        "i2c": "^0.2.3"
+    },
+    "devDependencies": {
+        "chai": "4.1.2",
+        "eslint": "5.6.0",
+        "eslint-config-airbnb-base": "13.1.0",
+        "eslint-plugin-import": "2.14.0",
+        "mocha": "5.2.0",
+        "nyc": "13.0.1"
+    },
+    "scripts": {
+        "lint": "eslint . --fix",
+        "test": "nyc --reporter=html --reporter=text mocha --exit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RescueOnWheels/Motor.git"
+    },
+    "author": "RescueOnWheels",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/RescueOnWheels/Motor/issues"
+    },
+    "homepage": "https://github.com/RescueOnWheels/Motor#readme",
+    "directories": {
+        "example": "example",
+        "lib": "lib",
+        "test": "test"
+    }
 }
