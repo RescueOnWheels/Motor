@@ -1,4 +1,4 @@
-const wheel = require('./');
+const wheel = require('./../');
 
 try {
   console.log('Deus Ex Machina');
