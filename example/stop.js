@@ -1,3 +1,9 @@
-const motor = require('./../');
+const wheel = require('./../');
 
-motor.Stop();
+try {
+  console.log('Deus Ex Machina');
+  wheel.Stop();
+} catch (error) {
+  console.log('y u no work!?');
+  console.log(error);
+}
