@@ -19,6 +19,10 @@ class Motor {
     this.wire = new I2C(address, { device: '/dev/i2c-1' });
     // point to your i2c address, debug provides REPL interface
   }
+  
+  SoftStart() {
+    // I have no clue what i am doing?!?!
+  }
 
   /**
    * The function which makes the RRS rotate to the left on his own axle.
