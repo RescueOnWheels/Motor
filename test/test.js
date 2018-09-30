@@ -1,4 +1,4 @@
-const wheel = require('./');
+const wheel = require('./../');
 
 /**
  * Function which makes it possible to use sleep.
