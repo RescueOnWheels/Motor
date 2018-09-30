@@ -1,7 +1,7 @@
 {
   "name": "motor",
   "version": "1.0.0",
-  "description": "",
+  "description": "Motor control system of the Rover Rescue System.",
   "main": "index.js",
   "dependencies": {
     "i2c": "^0.2.3"
@@ -12,14 +12,15 @@
     "eslint-plugin-import": "^2.14.0"
   },
   "scripts": {
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RescueOnWheels/Motor.git"
   },
-  "author": "",
+  "author": "RescueOnWheels",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/RescueOnWheels/Motor/issues"
