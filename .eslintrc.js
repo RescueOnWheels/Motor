@@ -1,4 +1,8 @@
 module.exports = {
+    "env": {
+      "mocha": true,
+      "node": true
+    },
     "extends": "airbnb-base",
     "rules": {
         "multiline-comment-style": ["error", "starred-block"],
