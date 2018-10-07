@@ -6,11 +6,11 @@ const chai = require('chai');
 /**
  * Class to test.
  */
-const motor = require('./../');
+const motor = require('./../../');
 
 chai.should();
 
-describe('constructor', () => {
+module.exports = () => {
   it('should have access to the \'write_history\' property of wire', () => {
     motor.wire.should.have.property('write_history');
   });
@@ -30,4 +30,4 @@ describe('constructor', () => {
   it('should set the \'device\' property of wire.options to \'/dev/i2c-1\'', () => {
     motor.wire.options.device.should.equal('/dev/i2c-1');
   });
-});
+};
