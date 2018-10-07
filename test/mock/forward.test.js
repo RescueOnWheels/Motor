@@ -167,5 +167,49 @@ module.exports = () => {
       motor.wire.write_history[motor.wire.write_history.length - 1][5].should.equal(255);
       motor.wire.write_history[motor.wire.write_history.length - 1][6].should.equal(2);
     });
+
+    it('should send [7, 3, 0, 2, 3, 255, 2] if {speed: 1023, direction:2, balance:-255}', () => {
+      // Act
+      motor.Forward({
+        speed: 1023,
+        direction: 2,
+        balance: -255,
+      });
+
+      // Assert command
+      motor.wire.write_history[motor.wire.write_history.length - 1][0].should.equal(7);
+
+      // Assert left motor
+      motor.wire.write_history[motor.wire.write_history.length - 1][1].should.equal(3);
+      motor.wire.write_history[motor.wire.write_history.length - 1][2].should.equal(0);
+      motor.wire.write_history[motor.wire.write_history.length - 1][3].should.equal(2);
+
+      // Assert right motor
+      motor.wire.write_history[motor.wire.write_history.length - 1][4].should.equal(3);
+      motor.wire.write_history[motor.wire.write_history.length - 1][5].should.equal(255);
+      motor.wire.write_history[motor.wire.write_history.length - 1][6].should.equal(2);
+    });
+
+    it('should send [7, 3, 255, 2, 3, 0, 2] if {speed: 1023, direction:2, balance:255}', () => {
+      // Act
+      motor.Forward({
+        speed: 1023,
+        direction: 2,
+        balance: 255,
+      });
+
+      // Assert command
+      motor.wire.write_history[motor.wire.write_history.length - 1][0].should.equal(7);
+
+      // Assert left motor
+      motor.wire.write_history[motor.wire.write_history.length - 1][1].should.equal(3);
+      motor.wire.write_history[motor.wire.write_history.length - 1][2].should.equal(255);
+      motor.wire.write_history[motor.wire.write_history.length - 1][3].should.equal(2);
+
+      // Assert right motor
+      motor.wire.write_history[motor.wire.write_history.length - 1][4].should.equal(3);
+      motor.wire.write_history[motor.wire.write_history.length - 1][5].should.equal(0);
+      motor.wire.write_history[motor.wire.write_history.length - 1][6].should.equal(2);
+    });
   });
 };
