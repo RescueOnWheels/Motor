@@ -6,11 +6,11 @@ const chai = require('chai');
 /**
  * Class to test.
  */
-const motor = require('./../');
+const motor = require('./../../');
 
 chai.should();
 
-describe('left', () => {
+module.exports = () => {
   it('should send a buffer with a length of \'7\'', () => {
     // Act
     motor.Left();
@@ -26,4 +26,4 @@ describe('left', () => {
     // Assert
     motor.wire.write_history[motor.wire.write_history.length - 1][0].should.equal(7);
   });
-});
+};
