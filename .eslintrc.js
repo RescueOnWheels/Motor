@@ -5,10 +5,8 @@ module.exports = {
   },
   "extends": "airbnb-base",
   "rules": {
-    "camelcase": "error",
     "multiline-comment-style": ["error", "starred-block"],
     "no-bitwise": ["off"],
-    "no-console": ["off"],
     "no-multiple-empty-lines": ["error", {
       "max": 1,
       "maxBOF": 0,

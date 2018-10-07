@@ -1,6 +1,7 @@
 let toMockOrNotToMockThatIsTheQuestion;
 if (process.env.NODE_ENV) {
-  console.warn('Motor: Using the mock tests!');
+  // eslint-disable-line no-console
+  console.warn('Motor: Using the mock tests!'); // eslint-disable-line no-console
   toMockOrNotToMockThatIsTheQuestion = ('./mock');
 } else {
   toMockOrNotToMockThatIsTheQuestion = ('./real');
