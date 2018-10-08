@@ -26,4 +26,13 @@ module.exports = () => {
     // Assert
     motor.wire.write_history[motor.wire.write_history.length - 1][0].should.equal(7);
   });
+
+  it('should set direction index [3] to \'1\' and [6] to \'2\'', () => {
+    // Act
+    motor.Left();
+
+    // Assert
+    motor.wire.write_history[motor.wire.write_history.length - 1][3].should.equal(1);
+    motor.wire.write_history[motor.wire.write_history.length - 1][6].should.equal(2);
+  });
 };
