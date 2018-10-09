@@ -1,5 +1,5 @@
 let toMockOrNotToMockThatIsTheQuestion;
-if (process.env.NODE_ENV) {
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'CI') {
   // eslint-disable-line no-console
   console.warn('Motor: Using the mock tests!'); // eslint-disable-line no-console
   toMockOrNotToMockThatIsTheQuestion = ('./mock');
