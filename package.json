@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "debug": "3.1.0",
-    "i2c": "0.2.3"
+    "if-env": "1.0.4"
   },
   "devDependencies": {
     "chai": "4.2.0",
@@ -17,12 +17,17 @@
     "mocha": "5.2.0",
     "nyc": "13.0.1"
   },
+  "optionalDependencies": {
+    "i2c": "0.2.3"
+  },
   "scripts": {
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "dev": "cross-env NODE_ENV=development DEBUG=\"RRS:*\" npm test",
-    "lint": "eslint .",
-    "lint-fix": "eslint . --fix",
-    "test": "nyc --reporter=html --reporter=text mocha --exit"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "if-env NODE_ENV=CI && npm run lint:ci || npm run lint:fix",
+    "lint:ci": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "if-env NODE_ENV=CI && npm run test:ci || npm run test:debug",
+    "test:ci": "nyc mocha",
+    "test:debug": "cross-env DEBUG=RRS:* npm run test:ci"
   },
   "repository": {
     "type": "git",
