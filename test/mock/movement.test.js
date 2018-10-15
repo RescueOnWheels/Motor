@@ -14,7 +14,7 @@ module.exports = () => {
   describe('syntax', () => {
     it('should send an array with a length of \'7\'', () => {
       // Act
-      motor.Forward({
+      motor.Movement({
         speed: 0,
         direction: 0,
         balance: 0,
@@ -26,7 +26,7 @@ module.exports = () => {
 
     it('should send command \'7\'', () => {
       // Act
-      motor.Forward({
+      motor.Movement({
         speed: 0,
         direction: 0,
         balance: 0,
@@ -46,7 +46,7 @@ module.exports = () => {
 
         for (let speed = -1023; speed <= 1023; speed += 1) {
           // Act
-          motor.Forward({
+          motor.Movement({
             speed,
             direction,
             balance,
@@ -70,7 +70,7 @@ module.exports = () => {
 
         for (let speed = -1023; speed <= 1023; speed += 1) {
           // Act
-          motor.Forward({
+          motor.Movement({
             speed,
             direction,
             balance,
@@ -93,7 +93,7 @@ module.exports = () => {
 
         for (let direction = -10; direction < 10; direction += 1) {
           // Act
-          motor.Forward({
+          motor.Movement({
             speed,
             direction,
             balance,
@@ -121,7 +121,7 @@ module.exports = () => {
           for (let speed = 0; speed <= 1023; speed += 32) {
             for (let balance = -256; balance < 256; balance += 32) {
               // Act
-              motor.Forward({
+              motor.Movement({
                 speed,
                 direction,
                 balance,
@@ -148,7 +148,7 @@ module.exports = () => {
   describe('test cases', () => {
     it('should send [7, 3, 255, 2, 3, 255, 2] if {speed: 1023, direction:2, balance:0}', () => {
       // Act
-      motor.Forward({
+      motor.Movement({
         speed: 1023,
         direction: 2,
         balance: 0,
@@ -170,7 +170,7 @@ module.exports = () => {
 
     it('should send [7, 3, 0, 2, 3, 255, 2] if {speed: 1023, direction:2, balance:-255}', () => {
       // Act
-      motor.Forward({
+      motor.Movement({
         speed: 1023,
         direction: 2,
         balance: -255,
@@ -192,7 +192,7 @@ module.exports = () => {
 
     it('should send [7, 3, 255, 2, 3, 0, 2] if {speed: 1023, direction:2, balance:255}', () => {
       // Act
-      motor.Forward({
+      motor.Movement({
         speed: 1023,
         direction: 2,
         balance: 255,
