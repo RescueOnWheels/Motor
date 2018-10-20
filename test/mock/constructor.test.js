@@ -1,11 +1,7 @@
-/**
- * BDD / TDD assertion library.
- */
+/* Packages */
 const chai = require('chai');
 
-/**
- * Class to test.
- */
+/* Test target */
 const motor = require('./../../');
 
 chai.should();
@@ -17,6 +13,14 @@ module.exports = () => {
 
   it('should have access to the \'write_history\' property of wire, which should be an array', () => {
     motor.wire.write_history.should.be.a('array');
+  });
+
+  it('should have access to the \'EEPROM\' property of wire', () => {
+    motor.wire.should.have.property('EEPROM');
+  });
+
+  it('should have access to the \'EEPROM\' property of wire, which should be an array', () => {
+    motor.wire.EEPROM.should.be.a('array');
   });
 
   it('should have access to the \'options\' property of wire', () => {
