@@ -5,6 +5,7 @@ const right = require('./right.test');
 const setGlobalPower = require('./setGlobalPower.test');
 const setSoftStart = require('./setSoftStart.test');
 const stop = require('./stop.test');
+const write = require('./write.test');
 
 describe('Mock', () => {
   describe('constructor', constructor);
@@ -14,4 +15,5 @@ describe('Mock', () => {
   describe('setGlobalPower', setGlobalPower);
   describe('setSoftStart', setSoftStart);
   describe('stop', stop);
+  describe('write', write);
 });
