@@ -26,4 +26,12 @@ module.exports = () => {
   it('should set the I2C device to `/dev/i2c-1`.', () => {
     wire.options.device.should.equal('/dev/i2c-1');
   });
+
+  it('should have access to the \'EEPROM\' property of wire', () => {
+    wire.should.have.property('EEPROM');
+  });
+
+  it('should have access to the \'EEPROM\' property of wire, which should be an array', () => {
+    wire.EEPROM.should.be.a('array');
+  });
 };

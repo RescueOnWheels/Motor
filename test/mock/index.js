@@ -15,20 +15,22 @@ const arraysEqual = require('./helpers/arraysEqual.test');
 const i2c = require('./interfaces/i2c.mock.test');
 
 describe('Mock', () => {
-  describe('constructor', constructor);
-  describe('left', left);
-  describe('move', move);
-  describe('right', right);
-  describe('setGlobalPower', setGlobalPower);
-  describe('setSoftStart', setSoftStart);
-  describe('stop', stop);
-  describe('write', write);
-
   describe('helpers', () => {
     describe('arraysEqual', arraysEqual);
   });
 
   describe('interfaces', () => {
     describe('i2c.mock', i2c);
+  });
+
+  describe('motor', () => {
+    describe('constructor', constructor);
+    describe('left', left);
+    describe('move', move);
+    describe('right', right);
+    describe('setGlobalPower', setGlobalPower);
+    describe('setSoftStart', setSoftStart);
+    describe('stop', stop);
+    describe('write', write);
   });
 });

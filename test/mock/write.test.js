@@ -21,7 +21,6 @@ module.exports = () => {
       motor.wire.write_history.length.should.equal(1);
     });
 
-
     it('should prevent duplicate commands, even if there is another function called in between.', () => {
       // Act
       motor.Stop();
