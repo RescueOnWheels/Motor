@@ -36,17 +36,17 @@ module.exports = () => {
       motor.wire.EEPROM[23].should.equal(0);
     });
 
-    it('should set `Soft Start` to 127 if the input is 127.', () => {
+    it('should set `Soft Start` to 128 if the input is 50.', () => {
       // Act
-      motor.setSoftStart(127);
+      motor.setSoftStart(50);
 
       // Arrange
-      motor.wire.EEPROM[23].should.equal(127);
+      motor.wire.EEPROM[23].should.equal(128);
     });
 
-    it('should set `Soft Start` to 255 if the input is 255.', () => {
+    it('should set `Soft Start` to 255 if the input is 100.', () => {
       // Act
-      motor.setSoftStart(255);
+      motor.setSoftStart(100);
 
       // Arrange
       motor.wire.EEPROM[23].should.equal(255);

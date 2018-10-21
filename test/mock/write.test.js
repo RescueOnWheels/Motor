@@ -14,8 +14,8 @@ module.exports = () => {
   describe('duplicate commands', () => {
     it('should prevent duplicate commands', () => {
       // Act
-      motor.Stop();
-      motor.Stop();
+      motor.stop();
+      motor.stop();
 
       // Assert
       motor.wire.write_history.length.should.equal(1);
@@ -23,9 +23,9 @@ module.exports = () => {
 
     it('should prevent duplicate commands, even if there is another function called in between.', () => {
       // Act
-      motor.Stop();
+      motor.stop();
       motor.setGlobalPower(10);
-      motor.Stop();
+      motor.stop();
 
       // Assert
       motor.wire.write_history.length.should.equal(2);

@@ -1,11 +1,11 @@
 /* Motor */
 const constructor = require('./constructor.test');
-const left = require('./left.test');
 const move = require('./move.test');
-const right = require('./right.test');
 const setGlobalPower = require('./setGlobalPower.test');
 const setSoftStart = require('./setSoftStart.test');
 const stop = require('./stop.test');
+const turnLeft = require('./turnLeft.test');
+const turnRight = require('./turnRight.test');
 const write = require('./write.test');
 
 /* Helpers */
@@ -25,12 +25,12 @@ describe('Mock', () => {
 
   describe('motor', () => {
     describe('constructor', constructor);
-    describe('left', left);
     describe('move', move);
-    describe('right', right);
     describe('setGlobalPower', setGlobalPower);
     describe('setSoftStart', setSoftStart);
     describe('stop', stop);
+    describe('turnLeft', turnLeft);
+    describe('turnRight', turnRight);
     describe('write', write);
   });
 });
