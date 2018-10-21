@@ -1,3 +1,4 @@
+/* Motor */
 const constructor = require('./constructor.test');
 const left = require('./left.test');
 const move = require('./move.test');
@@ -6,6 +7,9 @@ const setGlobalPower = require('./setGlobalPower.test');
 const setSoftStart = require('./setSoftStart.test');
 const stop = require('./stop.test');
 const write = require('./write.test');
+
+/* Helpers */
+const arraysEqual = require('./helpers/arraysEqual.test');
 
 describe('Mock', () => {
   describe('constructor', constructor);
@@ -16,4 +20,8 @@ describe('Mock', () => {
   describe('setSoftStart', setSoftStart);
   describe('stop', stop);
   describe('write', write);
+
+  describe('helpers', () => {
+    describe('arraysEqual', arraysEqual);
+  });
 });
