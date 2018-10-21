@@ -4,14 +4,14 @@ const chai = require('chai');
 /* Test target */
 const motor = require('./../../');
 
-const should = chai.should();
+chai.should();
 
 module.exports = () => {
-  describe('duplicate commands', () => {
-    beforeEach(() => {
-      motor.wire.write_history = [];
-    });
+  beforeEach(() => {
+    motor.wire.write_history = [];
+  });
 
+  describe('duplicate commands', () => {
     it('should prevent duplicate commands', () => {
       // Act
       motor.Stop();
@@ -53,21 +53,16 @@ module.exports = () => {
   });
 
   describe('(un)known commands', () => {
-    it('should throw an error for an unknown command', () => {
+    it('should send stop command if there is an error (e.g. an unknown command)', () => {
       // Arrange
       const command = [1, 2, 3, 4];
 
-      try {
-        // Act
-        motor.write(command);
+      // Act
+      motor.write(command);
 
-        // Assert
-        should.fail('No error was thrown when it should have been!');
-      } catch (err) {
-        // Assert
-        err.should.be.an.instanceOf(Error);
-        err.should.have.property('message', 'Unknown command \'1\' with args: \'2,3,4\'');
-      }
+      // Assert
+      motor.wire.write_history.length.should.equal(2);
+      motor.wire.write_history[1].should.deep.equal([7, 0, 0, 0, 0, 0, 0]);
     });
   });
 };
