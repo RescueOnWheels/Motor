@@ -1,6 +1,7 @@
 /* Motor */
 const constructor = require('./constructor.test');
 const move = require('./move.test');
+const setForwardMulti = require('./setForwardMulti.test');
 const setGlobalPower = require('./setGlobalPower.test');
 const setSoftStart = require('./setSoftStart.test');
 const stop = require('./stop.test');
@@ -26,6 +27,7 @@ describe('Mock', () => {
   describe('motor', () => {
     describe('constructor', constructor);
     describe('move', move);
+    describe('setForwardMulti', setForwardMulti);
     describe('setGlobalPower', setGlobalPower);
     describe('setSoftStart', setSoftStart);
     describe('stop', stop);
