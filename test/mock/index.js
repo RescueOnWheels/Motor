@@ -7,6 +7,7 @@ const stop = require('./stop.test');
 const turnLeft = require('./turnLeft.test');
 const turnRight = require('./turnRight.test');
 const write = require('./write.test');
+const setForwardMulti = require('./setForwardMulti.test');
 
 /* Helpers */
 const arraysEqual = require('./helpers/arraysEqual.test');
@@ -28,6 +29,7 @@ describe('Mock', () => {
     describe('move', move);
     describe('setGlobalPower', setGlobalPower);
     describe('setSoftStart', setSoftStart);
+    describe('setForwardMulti', setForwardMulti);
     describe('stop', stop);
     describe('turnLeft', turnLeft);
     describe('turnRight', turnRight);
