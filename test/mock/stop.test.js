@@ -13,7 +13,7 @@ chai.should();
 module.exports = () => {
   it('should send a buffer with a length of \'7\'', () => {
     // Act
-    motor.Stop();
+    motor.stop();
 
     // Assert
     motor.wire.write_history[motor.wire.write_history.length - 1].should.have.lengthOf(7);
@@ -21,7 +21,7 @@ module.exports = () => {
 
   it('should send command \'7\'', () => {
     // Act
-    motor.Stop();
+    motor.stop();
 
     // Assert
     motor.wire.write_history[motor.wire.write_history.length - 1][0].should.equal(7);
@@ -29,7 +29,7 @@ module.exports = () => {
 
   it('should set indexes [1, 2, 3, 4, 5, 6] to \'0\'', () => {
     // Act
-    motor.Stop();
+    motor.stop();
 
     // Assert
     motor.wire.write_history[motor.wire.write_history.length - 1][1].should.equal(0);
