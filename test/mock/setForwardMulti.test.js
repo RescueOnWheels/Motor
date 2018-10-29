@@ -7,9 +7,13 @@ const motor = require('./../../');
 chai.should();
 
 module.exports = () => {
+  beforeEach(() => {
+    motor.wire.write_history = [];
+  });
+
   it('should prevent duplicate commands', () => {
     // Act
-    motor.move({ speed: 100 });
+    motor.move({ speed: 100, direction: 2 });
     motor.setForwardMulti(0);
     motor.setForwardMulti(0);
 
