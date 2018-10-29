@@ -1,13 +1,13 @@
 /* Motor */
 const constructor = require('./constructor.test');
 const move = require('./move.test');
+const setForwardMulti = require('./setForwardMulti.test');
 const setGlobalPower = require('./setGlobalPower.test');
 const setSoftStart = require('./setSoftStart.test');
 const stop = require('./stop.test');
 const turnLeft = require('./turnLeft.test');
 const turnRight = require('./turnRight.test');
 const write = require('./write.test');
-const setForwardMulti = require('./setForwardMulti.test');
 
 /* Helpers */
 const arraysEqual = require('./helpers/arraysEqual.test');
@@ -27,9 +27,9 @@ describe('Mock', () => {
   describe('motor', () => {
     describe('constructor', constructor);
     describe('move', move);
+    describe('setForwardMulti', setForwardMulti);
     describe('setGlobalPower', setGlobalPower);
     describe('setSoftStart', setSoftStart);
-    describe('setForwardMulti', setForwardMulti);
     describe('stop', stop);
     describe('turnLeft', turnLeft);
     describe('turnRight', turnRight);
