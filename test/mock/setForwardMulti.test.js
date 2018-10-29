@@ -14,7 +14,7 @@ module.exports = () => {
     motor.setForwardMulti(0);
 
     // Assert
-    motor.wire.write_history.should.equal(2);
+    motor.wire.write_history.length.should.equal(2);
   });
 
   describe('test cases', () => {
