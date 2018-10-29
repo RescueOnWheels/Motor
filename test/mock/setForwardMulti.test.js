@@ -7,6 +7,16 @@ const motor = require('./../../');
 chai.should();
 
 module.exports = () => {
+  it('should prevent duplicate commands', () => {
+    // Act
+    motor.move({ speed: 100 });
+    motor.setForwardMulti(0);
+    motor.setForwardMulti(0);
+
+    // Assert
+    motor.wire.write_history.should.equal(2);
+  });
+
   describe('test cases', () => {
     it('should set `Forward Multi` to 0 if the input is 0.', () => {
       // Act
