@@ -15,6 +15,9 @@ const arraysEqual = require('./helpers/arraysEqual.test');
 /* Interfaces */
 const i2c = require('./interfaces/i2c.mock.test');
 
+/* Lib */
+const Auxilio = require('./../../lib/Auxilio/test');
+
 describe('Mock', () => {
   describe('helpers', () => {
     describe('arraysEqual', arraysEqual);
@@ -34,5 +37,9 @@ describe('Mock', () => {
     describe('turnLeft', turnLeft);
     describe('turnRight', turnRight);
     describe('write', write);
+  });
+
+  describe('lib', () => {
+    describe('Auxilio', Auxilio);
   });
 });
