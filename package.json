@@ -4,7 +4,6 @@
   "description": "Motor control system of the Rover Rescue System.",
   "main": "index.js",
   "dependencies": {
-    "debug": "3.1.0",
     "if-env": "1.0.4"
   },
   "devDependencies": {
