@@ -6,7 +6,6 @@ extends: airbnb-base
 
 rules:
   no-bitwise: 0
-  no-continue: 0
   no-multiple-empty-lines:
     - 2
     - max: 1
