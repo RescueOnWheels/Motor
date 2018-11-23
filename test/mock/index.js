@@ -9,17 +9,13 @@ const turnLeft = require('./turnLeft.test');
 const turnRight = require('./turnRight.test');
 const write = require('./write.test');
 
-/* Helpers */
-const arraysEqual = require('./helpers/arraysEqual.test');
-
 /* Interfaces */
 const i2c = require('./interfaces/i2c.mock.test');
 
-describe('Mock', () => {
-  describe('helpers', () => {
-    describe('arraysEqual', arraysEqual);
-  });
+/* Lib */
+const Auxilio = require('./../../lib/Auxilio/test');
 
+describe('Mock', () => {
   describe('interfaces', () => {
     describe('i2c.mock', i2c);
   });
@@ -34,5 +30,9 @@ describe('Mock', () => {
     describe('turnLeft', turnLeft);
     describe('turnRight', turnRight);
     describe('write', write);
+  });
+
+  describe('lib', () => {
+    describe('Auxilio', Auxilio);
   });
 });
